@@ -19,6 +19,9 @@ public class Tache implements Serializable{
     @Enumerated(EnumType.STRING)
     private TypeTache typeTache;
 
+    @OneToOne(mappedBy = "taches")
+    private Etudiant etudiants;
+
     @ManyToOne
     Etudiant etudiant;
     // Getters and Setters

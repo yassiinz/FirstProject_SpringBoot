@@ -16,12 +16,26 @@ public class Etudiant implements Serializable{
     private String ecole;
     @Temporal(TemporalType.DATE)
     private Date dateNaissance;
+    @Enumerated(EnumType.STRING)
+    private typeEtudiant typeEtudiant;
+
+    @OneToOne
+    private Tache taches;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy="etudiant")
     private Set<Tache> tache;
 
     @ManyToMany(cascade = CascadeType.ALL)
     private Set<Resevarsion> resevarsion;
+
+    public com.esprit.tic.twin.firstspringproj.entities.typeEtudiant getTypeEtudiant() {
+        return typeEtudiant;
+    }
+
+    public void setTypeEtudiant(com.esprit.tic.twin.firstspringproj.entities.typeEtudiant typeEtudiant) {
+        this.typeEtudiant = typeEtudiant;
+    }
+
     public long getIdEtudiant() {
         return idEtudiant;
     }
