@@ -2,32 +2,26 @@ package com.esprit.tic.twin.firstspringproj.services;
 
 import com.esprit.tic.twin.firstspringproj.entities.Chamber;
 import com.esprit.tic.twin.firstspringproj.entities.Foyer;
+import com.esprit.tic.twin.firstspringproj.repository.ChambreRepository;
 
 import java.util.List;
 
 public class ChamberServiceImpl implements IChambreService{
+    ChambreRepository chambreRepository;
     @Override
     public List<Chamber> retrieveAllChambers() {
-        return null;
+        return chambreRepository.findAll();
     }
 
     @Override
-    public Foyer addChamber(Chamber c) {
-        return null;
-    }
+    public Chamber addChamber(Chamber c) { return chambreRepository.save(c);}
 
     @Override
-    public Foyer updateChamber(Chamber c) {
-        return null;
-    }
+    public Chamber updateChamber(Chamber c) {return chambreRepository.save(c);}
 
     @Override
-    public Foyer retrieveChamber(Long idChamber) {
-        return null;
-    }
+    public Chamber retrieveChamber(Long idChamber) { return chambreRepository.findById(idChamber).get(); }
 
     @Override
-    public void removeChamber(Long idChamber) {
-
-    }
+    public void removeChamber(Long idChamber) { chambreRepository.deleteById(idChamber);}
 }

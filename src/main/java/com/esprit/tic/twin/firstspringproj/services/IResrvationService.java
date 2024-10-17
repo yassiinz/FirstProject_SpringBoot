@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface IResrvationService {
     List<Resevarsion> retrieveAllResevarsions();
-    Foyer addResevarsion(Resevarsion r);
-    Foyer updateResevarsion(Resevarsion r);
-    Foyer retrieveResevarsion(Long idResevarsion);
+    Resevarsion addResevarsion(Resevarsion r);
+    Resevarsion updateResevarsion(Resevarsion r);
+    Resevarsion retrieveResevarsion(Long idResevarsion);
     void removeResevarsion(Long idResevarsion);
 }

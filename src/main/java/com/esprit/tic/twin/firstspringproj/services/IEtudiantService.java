@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface IEtudiantService {
     List<Etudiant> retrieveAllEtudiants();
-    Foyer addEtudiant(Etudiant e);
-    Foyer updateEtudiant(Etudiant e);
-    Foyer retrieveEtudiant(Long idEtudiant);
+    Etudiant addEtudiant(Etudiant e);
+    Etudiant updateEtudiant(Etudiant e);
+    Etudiant retrieveEtudiant(Long idEtudiant);
     void removeEtudiant(Long idEtudiant);
 }

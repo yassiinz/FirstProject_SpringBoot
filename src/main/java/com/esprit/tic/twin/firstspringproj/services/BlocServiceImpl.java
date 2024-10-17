@@ -2,9 +2,12 @@ package com.esprit.tic.twin.firstspringproj.services;
 
 import com.esprit.tic.twin.firstspringproj.entities.Bloc;
 import com.esprit.tic.twin.firstspringproj.repository.BlocRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
+@AllArgsConstructor
 public class BlocServiceImpl implements IBlocService{
 
     BlocRepository blocRepository;

@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 
-public interface BlocRepository extends JpaRepository<Bloc,long> {
+public interface BlocRepository extends JpaRepository<Bloc,Long> {
     @Query("SELECT b FROM Bloc b where b.foyer.university.nomUniversity : = university")
     List<Bloc> FindBlocByUni(@Param("university") String uni);
 }

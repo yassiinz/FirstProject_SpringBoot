@@ -12,17 +12,17 @@ public class ReservationServiceImpl implements IResrvationService{
     }
 
     @Override
-    public Foyer addResevarsion(Resevarsion r) {
+    public Resevarsion addResevarsion(Resevarsion r) {
         return null;
     }
 
     @Override
-    public Foyer updateResevarsion(Resevarsion r) {
+    public Resevarsion updateResevarsion(Resevarsion r) {
         return null;
     }
 
     @Override
-    public Foyer retrieveResevarsion(Long idResevarsion) {
+    public Resevarsion retrieveResevarsion(Long idResevarsion) {
         return null;
     }
 

@@ -2,32 +2,37 @@ package com.esprit.tic.twin.firstspringproj.services;
 
 import com.esprit.tic.twin.firstspringproj.entities.Etudiant;
 import com.esprit.tic.twin.firstspringproj.entities.Foyer;
+import com.esprit.tic.twin.firstspringproj.repository.EtudiantRepository;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
+@Slf4j
+@AllArgsConstructor
 public class EtudiantServiceImpl implements IEtudiantService{
+    EtudiantRepository etudiantRepository;
     @Override
     public List<Etudiant> retrieveAllEtudiants() {
-        return null;
+        return etudiantRepository.findAll();
     }
 
     @Override
-    public Foyer addEtudiant(Etudiant e) {
-        return null;
+    public Etudiant addEtudiant(Etudiant e) {
+        return etudiantRepository.save(e);
     }
 
     @Override
-    public Foyer updateEtudiant(Etudiant e) {
-        return null;
+    public Etudiant updateEtudiant(Etudiant e) {
+        return etudiantRepository.save(e);
     }
 
     @Override
-    public Foyer retrieveEtudiant(Long idEtudiant) {
-        return null;
+    public Etudiant retrieveEtudiant(Long idEtudiant) {
+        return etudiantRepository.findById(idEtudiant).get();
     }
 
     @Override
-    public void removeEtudiant(Long idEtudiant) {
-
-    }
+    public void removeEtudiant(Long idEtudiant) { etudiantRepository.deleteById(idEtudiant);}
 }

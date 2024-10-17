@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Repository
-public interface ChambreRepository extends JpaRepository<Chamber,long> {
+public interface ChambreRepository extends JpaRepository<Chamber,Long> {
     @Query("SELECT c FROM Chambre c WHERE c.bloc.nomBloc := nomBloc AND c.typeC = :typeC")
     List<Chamber> FindChambreByBloc(@Param("nomBloc") String nomBloc , @Param("typeC")TypeChambre typeC);
 
