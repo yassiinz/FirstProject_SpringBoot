@@ -11,12 +11,12 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface ChambreRepository extends JpaRepository<Chamber,Long> {
-    @Query("SELECT c FROM Chambre c WHERE c.bloc.nomBloc := nomBloc AND c.typeC = :typeC")
-    List<Chamber> FindChambreByBloc(@Param("nomBloc") String nomBloc , @Param("typeC")TypeChambre typeC);
+   /* @Query("SELECT c FROM Chambre c WHERE c.bloc.nomBloc = :nomBloc AND c.typeC = :typeC")
+    List<Chamber> findChambreByBloc(@Param("nomBloc") String nomBloc , @Param("typeC")TypeChambre typeC);
 
     @Query("SELECT c FROM Chambre c JOIN c.resevarsion rs Where rs.estValide = :estValide")
-    List<Chamber> FindChambreByReservation(@Param("estValide") Boolean estValide);
+    List<Chamber> findChambreByReservation(@Param("estValide") Boolean estValide);
 
-    @Query("SELECT c FROM Chambre c WHERE c.bloc.nomBloc := nomBloc AND c.bloc.capaciteBloc > :capaciteBloc")
-    List<Chamber> FindChambreByBlocAndCapacite(@Param("nomBloc") String nomBloc , @Param("capaciteBloc") Long capaciteBloc);
+    @Query("SELECT c FROM Chambre c WHERE c.bloc.nomBloc = :nomBloc AND c.bloc.capaciteBloc > :capaciteBloc")
+    List<Chamber> findChambreByBlocAndCapacite(@Param("nomBloc") String nomBloc , @Param("capaciteBloc") Long capaciteBloc);*/
 }

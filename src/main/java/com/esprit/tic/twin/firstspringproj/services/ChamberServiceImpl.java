@@ -3,9 +3,12 @@ package com.esprit.tic.twin.firstspringproj.services;
 import com.esprit.tic.twin.firstspringproj.entities.Chamber;
 import com.esprit.tic.twin.firstspringproj.entities.Foyer;
 import com.esprit.tic.twin.firstspringproj.repository.ChambreRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
+@AllArgsConstructor
 public class ChamberServiceImpl implements IChambreService{
     ChambreRepository chambreRepository;
     @Override

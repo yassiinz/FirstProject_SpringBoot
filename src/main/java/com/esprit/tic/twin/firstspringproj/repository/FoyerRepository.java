@@ -7,8 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface FoyerRepository extends JpaRepository<Foyer,Long>{
-    List<Foyer> findByUniversiteNomUniversite(String nomFoyer);
+    /*List<Foyer> findByUniversiteNomUniversite(String nomFoyer);
     List<Foyer> findByBlocsNomBloc(String s);
-    List<Foyer> findByUniversiteNomUniversiteAndBlocsNomBloc(String nomFoyer);
+    List<Foyer> findByUniversiteNomUniversiteAndBlocsNomBloc(String nomFoyer);*/
 
 }

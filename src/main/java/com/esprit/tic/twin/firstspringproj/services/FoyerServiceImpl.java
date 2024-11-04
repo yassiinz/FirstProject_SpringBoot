@@ -2,9 +2,12 @@ package com.esprit.tic.twin.firstspringproj.services;
 
 import com.esprit.tic.twin.firstspringproj.entities.Foyer;
 import com.esprit.tic.twin.firstspringproj.repository.FoyerRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
+@AllArgsConstructor
 public class FoyerServiceImpl implements IFoyerService {
 
     FoyerRepository foyerRepository;
