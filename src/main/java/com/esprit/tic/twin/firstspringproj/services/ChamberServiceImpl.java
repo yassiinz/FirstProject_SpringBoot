@@ -30,14 +30,15 @@ public class ChamberServiceImpl implements IChambreService{
     @Override
     public void removeChamber(Long idChamber) { chambreRepository.deleteById(idChamber);}
 
+
     @Override
     public List<Chamber> retrieveChambreByBloc(String nomBloc) {
         return chambreRepository.retrieveChambreByBloc(nomBloc);
     }
 
     @Override
-    public List<Chamber> findChambreByBloc(String nomBloc, TypeChambre typeC) {
-        return chambreRepository.findChambreByBloc(nomBloc, typeC);
+    public List<Chamber> findChambreByBlocAndTypechambre(String nomBloc, TypeChambre typeC) {
+        return chambreRepository.findChambreByBlocAndTypechambre(nomBloc, typeC);
     }
 
     @Override

@@ -14,7 +14,7 @@ public interface IChambreService {
     void removeChamber(Long idChamber);
     List<Chamber> retrieveChambreByBloc(String nomBloc);
 
-    List<Chamber> findChambreByBloc(String nomBloc, TypeChambre typeC);
+    List<Chamber> findChambreByBlocAndTypechambre(String nomBloc, TypeChambre typeC);
 
     List<Chamber> findChambreByReservation(Boolean estValide);
 

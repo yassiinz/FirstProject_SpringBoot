@@ -8,8 +8,10 @@ import java.util.List;
 
 public interface IUniversityService {
     List<University> retrieveAllUniversity();
-    Foyer addUniversity(University u);
-    Foyer updateUniversity(University u);
-    Foyer retrieveUniversity(Long idUniversity);
+    University addUniversity(University u);
+    University updateUniversity(University u);
+    University retrieveUniversity(Long idUniversity);
     void removeUniversity(Long idUniversity);
+    University affecterFoyerAuniversity(Long idfoyer,String nomUniversite);
+    University desaffecterFoyerAUniversite (long idFoyer);
 }

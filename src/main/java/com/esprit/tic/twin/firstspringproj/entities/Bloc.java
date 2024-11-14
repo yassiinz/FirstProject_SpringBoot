@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -21,10 +22,11 @@ public class Bloc implements Serializable {
     private String nomBloc;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy="bloc")
-    private Set<Chamber> chamber;
+    private List<Chamber> chamber;
 
     @ManyToOne
     Foyer foyer;
+    private Long capaciteBloc;
 
     public long getIdBloc() {
         return idBloc;
@@ -42,6 +44,22 @@ public class Bloc implements Serializable {
         this.nomBloc = nomBloc;
     }
 
+    public List<Chamber> getChamber() {
+        return chamber;
+    }
+
+    public void setChamber(List<Chamber> chamber) {
+        this.chamber = chamber;
+    }
+
+    public Foyer getFoyer() {
+        return foyer;
+    }
+
+    public void setFoyer(Foyer foyer) {
+        this.foyer = foyer;
+    }
+
     public Long getCapaciteBloc() {
         return capaciteBloc;
     }
@@ -49,6 +67,4 @@ public class Bloc implements Serializable {
     public void setCapaciteBloc(Long capaciteBloc) {
         this.capaciteBloc = capaciteBloc;
     }
-
-    private Long capaciteBloc;
 }

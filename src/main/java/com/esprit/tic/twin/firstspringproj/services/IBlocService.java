@@ -10,4 +10,5 @@ public interface IBlocService {
     Bloc updateBloc(Bloc b);
     Bloc retrieveBloc(Long idBloc);
     void removeBloc(Long idBloc);
+    Bloc affecterChambresABloc(List<Long> numChambre, String nomBloc);
 }

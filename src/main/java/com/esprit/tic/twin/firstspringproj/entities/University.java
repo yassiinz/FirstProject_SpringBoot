@@ -45,4 +45,12 @@ public class University implements Serializable {
     public void setAdresse(String adresse) {
         this.adresse = adresse;
     }
+
+    public Foyer getFoyer() {
+        return foyer;
+    }
+
+    public void setFoyer(Foyer foyer) {
+        this.foyer = foyer;
+    }
 }

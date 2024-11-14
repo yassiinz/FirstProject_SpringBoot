@@ -35,4 +35,6 @@ public class FoyerServiceImpl implements IFoyerService {
     public void removeFoyer(Long idFoyer) {
         foyerRepository.deleteById(idFoyer);
     }
+
+
 }
