@@ -7,6 +7,7 @@ import com.esprit.tic.twin.firstspringproj.repository.ChambreRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
 @Service
 @AllArgsConstructor
@@ -40,18 +41,17 @@ public class BlocServiceImpl implements IBlocService{
     }
 
     @Override
-    public Bloc affecterChambresABloc(List<Long> numeroChambre, String nomBloc){
-        // Find Bloc by its name
+    public Bloc affecterChambresABloc(List<Long> numChambre, String nomBloc){
         Bloc bloc = blocRepository.findByNomBloc(nomBloc);
 
-        // Retrieve all Chambers by their numbers
-        List<Chamber> chambers = chambreRepository.findByNumeroChambreIn(numeroChambre);
+        numChambre.stream().forEach(
+            chamberNumber -> {
+            Chamber c = chambreRepository.findByNumeroChambre(chamberNumber);
+            c.setBloc(bloc);
+            chambreRepository.save(c);
+        });
 
-        // Assign Chambers to the Bloc
-        bloc.setChamber(chambers);
-
-        // Save and return the updated Bloc
-        return blocRepository.save(bloc);
+        return bloc;
+    }
     }
 
-}

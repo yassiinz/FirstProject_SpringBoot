@@ -48,4 +48,11 @@ public class Resevarsion implements Serializable{
         this.estValide = estValide;
     }
 
+    public Set<Etudiant> getEtudiant() {
+        return etudiant;
+    }
+
+    public void setEtudiant(Set<Etudiant> etudiant) {
+        this.etudiant = etudiant;
+    }
 }

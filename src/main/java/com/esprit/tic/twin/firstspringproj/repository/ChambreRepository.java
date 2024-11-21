@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public interface ChambreRepository extends JpaRepository<Chamber,Long> {
 
-    List<Chamber> findByNumeroChambreIn(List<Long> numeroChambre);
+    Chamber findByNumeroChambre(Long numeroChambre);
     @Query("select c from Chamber c where c.bloc.nomBloc=:nomBloc")
     List<Chamber> retrieveChambreByBloc(@Param("nomBloc")String nomBloc);
     @Query("SELECT c FROM Chamber c WHERE c.bloc.nomBloc = :nomBloc AND c.typeC = :typeC")

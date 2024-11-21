@@ -28,6 +28,8 @@ public class Etudiant implements Serializable{
     @Enumerated(EnumType.STRING)
     private typeEtudiant typeEtudiant;
 
+    private float montantInscription;
+
     @OneToOne
     private Tache taches;
 
@@ -43,6 +45,14 @@ public class Etudiant implements Serializable{
 
     public void setTypeEtudiant(com.esprit.tic.twin.firstspringproj.entities.typeEtudiant typeEtudiant) {
         this.typeEtudiant = typeEtudiant;
+    }
+
+    public float getMontantInscription() {
+        return montantInscription;
+    }
+
+    public void setMontantInscription(float montantInscription) {
+        this.montantInscription = montantInscription;
     }
 
     public long getIdEtudiant() {
@@ -93,4 +103,27 @@ public class Etudiant implements Serializable{
         this.dateNaissance = dateNaissance;
     }
 
+    public Tache getTaches() {
+        return taches;
+    }
+
+    public void setTaches(Tache taches) {
+        this.taches = taches;
+    }
+
+    public Set<Tache> getTache() {
+        return tache;
+    }
+
+    public void setTache(Set<Tache> tache) {
+        this.tache = tache;
+    }
+
+    public Set<Resevarsion> getResevarsion() {
+        return resevarsion;
+    }
+
+    public void setResevarsion(Set<Resevarsion> resevarsion) {
+        this.resevarsion = resevarsion;
+    }
 }

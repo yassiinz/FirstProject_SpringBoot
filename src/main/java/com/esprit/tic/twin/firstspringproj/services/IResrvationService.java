@@ -1,6 +1,7 @@
 package com.esprit.tic.twin.firstspringproj.services;
 
 import com.esprit.tic.twin.firstspringproj.entities.Bloc;
+import com.esprit.tic.twin.firstspringproj.entities.Etudiant;
 import com.esprit.tic.twin.firstspringproj.entities.Foyer;
 import com.esprit.tic.twin.firstspringproj.entities.Resevarsion;
 
@@ -12,4 +13,5 @@ public interface IResrvationService {
     Resevarsion updateResevarsion(Resevarsion r);
     Resevarsion retrieveResevarsion(Long idResevarsion);
     void removeResevarsion(Long idResevarsion);
+    Etudiant affecterEtudiantAReservation(String nomEt, String prenomEt, String idResevarsion);
 }

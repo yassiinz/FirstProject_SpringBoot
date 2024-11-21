@@ -13,10 +13,11 @@ import java.util.List;
 @RequestMapping("/api/bloc")
 public class BlocController {
     IBlocService blocService;
-    @PostMapping("/affectChambers")
-    public Bloc affectChambersToBloc(@RequestBody List<Long> numeroChambre, @RequestParam String nomBloc) {
-        return blocService.affecterChambresABloc(numeroChambre, nomBloc);
+    @PostMapping("/affectChambers/{nomBloc}")
+    public Bloc affecterChambresABloc(@RequestBody List<Long> numChambre, @PathVariable("nomBloc") String nomBloc) {
+        return blocService.affecterChambresABloc(numChambre, nomBloc);
     }
+
 
 }
 

@@ -1,11 +1,14 @@
 package com.esprit.tic.twin.firstspringproj.services;
 
+import com.esprit.tic.twin.firstspringproj.entities.Bloc;
 import com.esprit.tic.twin.firstspringproj.entities.Foyer;
 import com.esprit.tic.twin.firstspringproj.repository.FoyerRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
+
 @Service
 @AllArgsConstructor
 public class FoyerServiceImpl implements IFoyerService {
@@ -36,5 +39,13 @@ public class FoyerServiceImpl implements IFoyerService {
         foyerRepository.deleteById(idFoyer);
     }
 
-
+    public Foyer addFoyerWithBloc(Foyer f){
+        Set<Bloc> blocs = f.getBloc();
+        if (blocs != null) {
+            for (Bloc bloc : blocs) {
+                bloc.setFoyer(f);
+            }
+        }
+        return foyerRepository.save(f);
+    }
 }

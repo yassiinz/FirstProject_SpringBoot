@@ -73,5 +73,21 @@ public class Tache implements Serializable{
     public void setTypeTache(TypeTache typeTache) {
         this.typeTache = typeTache;
     }
+
+    public Etudiant getEtudiants() {
+        return etudiants;
+    }
+
+    public void setEtudiants(Etudiant etudiants) {
+        this.etudiants = etudiants;
+    }
+
+    public Etudiant getEtudiant() {
+        return etudiant;
+    }
+
+    public void setEtudiant(Etudiant etudiant) {
+        this.etudiant = etudiant;
+    }
 }
 
