@@ -9,6 +9,7 @@ import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 @Service
 @AllArgsConstructor
@@ -57,5 +58,12 @@ public class ReservationServiceImpl implements IResrvationService{
         etudiantRepository.save(etudiant);
 
         return etudiant;
+    }
+    @Override
+    public List<Resevarsion> getReservationParAnneeUniversitaire(Date dateDebut, Date dateFin) {
+        if (dateDebut == null || dateFin == null) {
+            throw new IllegalArgumentException("Les dates ne peuvent pas être nulles");
+        }
+        return reservationRepository.findReservationsBetweenDates(dateDebut, dateFin);
     }
 }

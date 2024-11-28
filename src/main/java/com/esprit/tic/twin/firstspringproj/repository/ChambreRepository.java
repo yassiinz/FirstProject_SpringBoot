@@ -14,6 +14,8 @@ import java.util.List;
 public interface ChambreRepository extends JpaRepository<Chamber,Long> {
 
     Chamber findByNumeroChambre(Long numeroChambre);
+
+    long countByTypeCAndBloc(TypeChambre typeChambre, Bloc bloc);
     @Query("select c from Chamber c where c.bloc.nomBloc=:nomBloc")
     List<Chamber> retrieveChambreByBloc(@Param("nomBloc")String nomBloc);
     @Query("SELECT c FROM Chamber c WHERE c.bloc.nomBloc = :nomBloc AND c.typeC = :typeC")

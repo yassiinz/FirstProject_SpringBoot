@@ -2,6 +2,7 @@ package com.esprit.tic.twin.firstspringproj.services;
 
 import com.esprit.tic.twin.firstspringproj.entities.Bloc;
 import com.esprit.tic.twin.firstspringproj.entities.Chamber;
+import com.esprit.tic.twin.firstspringproj.entities.TypeChambre;
 import com.esprit.tic.twin.firstspringproj.repository.BlocRepository;
 import com.esprit.tic.twin.firstspringproj.repository.ChambreRepository;
 import lombok.AllArgsConstructor;
@@ -53,5 +54,15 @@ public class BlocServiceImpl implements IBlocService{
 
         return bloc;
     }
+    public long nbChambreParTypeEtBloc(TypeChambre type, long idBloc) {
+        // Vérifier si le bloc existe
+        Bloc bloc = blocRepository.findById(idBloc).orElseThrow(
+                () -> new RuntimeException("Bloc avec id " + idBloc + " introuvable"));
+
+        // Retourner le nombre de chambres du type donné
+        return chambreRepository.countByTypeCAndBloc(type, bloc);
+    }
+
+
     }
 

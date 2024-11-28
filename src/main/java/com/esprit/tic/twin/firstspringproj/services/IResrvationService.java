@@ -5,6 +5,7 @@ import com.esprit.tic.twin.firstspringproj.entities.Etudiant;
 import com.esprit.tic.twin.firstspringproj.entities.Foyer;
 import com.esprit.tic.twin.firstspringproj.entities.Resevarsion;
 
+import java.util.Date;
 import java.util.List;
 
 public interface IResrvationService {
@@ -14,4 +15,5 @@ public interface IResrvationService {
     Resevarsion retrieveResevarsion(Long idResevarsion);
     void removeResevarsion(Long idResevarsion);
     Etudiant affecterEtudiantAReservation(String nomEt, String prenomEt, String idResevarsion);
+    List<Resevarsion> getReservationParAnneeUniversitaire(Date dateDebut, Date dateFin);
 }
