@@ -69,5 +69,16 @@
         public void setBloc(Bloc bloc) {
             this.bloc = bloc;
         }
+
+        @Override
+        public String toString() {
+            return "Chamber{" +
+                    "idChambre=" + idChambre +
+                    ", numeroChambre=" + numeroChambre +
+                    ", typeC=" + typeC +
+                    ", resevarsion=" + resevarsion +
+                    ", bloc=" + bloc +
+                    '}';
+        }
     }
 

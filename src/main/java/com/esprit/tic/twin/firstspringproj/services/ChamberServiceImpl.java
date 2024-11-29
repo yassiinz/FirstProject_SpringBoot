@@ -1,18 +1,28 @@
 package com.esprit.tic.twin.firstspringproj.services;
 
+import com.esprit.tic.twin.firstspringproj.entities.Bloc;
 import com.esprit.tic.twin.firstspringproj.entities.Chamber;
 import com.esprit.tic.twin.firstspringproj.entities.Foyer;
 import com.esprit.tic.twin.firstspringproj.entities.TypeChambre;
+import com.esprit.tic.twin.firstspringproj.repository.BlocRepository;
 import com.esprit.tic.twin.firstspringproj.repository.ChambreRepository;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.repository.query.Param;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
+
 @Service
 @AllArgsConstructor
+@Slf4j
 public class ChamberServiceImpl implements IChambreService{
     ChambreRepository chambreRepository;
+    BlocRepository blocRepository;
     @Override
     public List<Chamber> retrieveAllChambers() {
         return chambreRepository.findAll();
@@ -50,5 +60,27 @@ public class ChamberServiceImpl implements IChambreService{
     public List<Chamber> findChambreByBlocAndCapacite(String nomBloc, Long capaciteBloc) {
         return chambreRepository.findChambreByBlocAndCapacite(nomBloc, capaciteBloc);
     }
+
+    @Scheduled(fixedRate = 60000)
+    public void listeChambresParBloc(){
+
+        List<Bloc> listB = blocRepository.findAll();
+        for (Bloc bloc : listB) {
+            log.info("Bloc : " + bloc.getNomBloc() + " ayant une capacité de " + bloc.getCapaciteBloc());
+            log.info("Liste des chambres du bloc " + bloc.getNomBloc() + " :");
+            for (Chamber ch : bloc.getChamber()){
+                log.info("Chambre numéro " + ch.getNumeroChambre() + " de type " + ch.getTypeC());
+            }
+        }}
+    /*@Scheduled()
+    public void pourcentageChambreParTypeChambre(){
+        Integer listC = chambreRepository.findAll().size();
+        Arrays.stream(TypeChambre.values()).forEach(
+                typeChambre -> {
+                    Integer nbChambresParType = chambreRepository
+                }
+        );
+
+    }*/
 
 }

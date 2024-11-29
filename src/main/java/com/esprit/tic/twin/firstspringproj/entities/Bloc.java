@@ -21,7 +21,7 @@ public class Bloc implements Serializable {
     private long idBloc;
     private String nomBloc;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy="bloc")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="bloc",fetch = FetchType.EAGER)
     private List<Chamber> chamber;
 
     @ManyToOne
