@@ -44,16 +44,15 @@ public class BlocServiceImpl implements IBlocService{
     @Override
     public Bloc affecterChambresABloc(List<Long> numChambre, String nomBloc){
         Bloc bloc = blocRepository.findByNomBloc(nomBloc);
-
         numChambre.stream().forEach(
-            chamberNumber -> {
-            Chamber c = chambreRepository.findByNumeroChambre(chamberNumber);
-            c.setBloc(bloc);
-            chambreRepository.save(c);
-        });
-
+                chamberNumber -> {
+                    Chamber c = chambreRepository.findByNumeroChambre(chamberNumber);
+                    c.setBloc(bloc);
+                    chambreRepository.save(c);
+                });
         return bloc;
     }
+
     public long nbChambreParTypeEtBloc(TypeChambre type, long idBloc) {
         // Vérifier si le bloc existe
         Bloc bloc = blocRepository.findById(idBloc).orElseThrow(

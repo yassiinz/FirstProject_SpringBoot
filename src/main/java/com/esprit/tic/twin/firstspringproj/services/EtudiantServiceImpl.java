@@ -41,16 +41,22 @@ public class EtudiantServiceImpl implements IEtudiantService{
     @Override
     public void removeEtudiant(Long idEtudiant) { etudiantRepository.deleteById(idEtudiant);}
 
-    public List<Tache> addTasksAndAffectToEtudiant(List<Tache> taches, String nomEt, String prenomEt) {
-        Etudiant etudiant = etudiantRepository.findByNomEtAndPrenomEt(nomEt, prenomEt)
-                .orElseThrow(() -> new IllegalArgumentException("Étudiant non trouvé avec le nom et prénom spécifiés."));
+ /*   public List<Tache> addTasksAndAffectToEtudiant(List<Tache> taches, String nomEt, String prenomEt) {
+        Etudiant etudiant = etudiantRepository.findByNomEtAndPrenomEt(nomEt, prenomEt);
 
         for (Tache tache : taches) {
             tache.setEtudiant(etudiant);
         }
 
         return tacheRepository.saveAll(taches);
-    }
+    }*/
+      public List<Tache> addTasksAndAffectToEtudiant (List<Tache> tasks, String nomEt, String prenomEt ) {
+          Etudiant etudiant = etudiantRepository.findByNomEtAndPrenomEt(nomEt, prenomEt);
+          for (Tache tache : tasks) {
+              tache.setEtudiant(etudiant);
+          }
+          return tacheRepository.saveAll(tasks);
+      }
     public HashMap<String, Float> calculNouveauMontantInscriptionDesEtudiants() {
         HashMap<String, Float> result = new HashMap<>();
 

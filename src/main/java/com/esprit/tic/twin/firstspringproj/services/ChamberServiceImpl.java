@@ -60,8 +60,21 @@ public class ChamberServiceImpl implements IChambreService{
     public List<Chamber> findChambreByBlocAndCapacite(String nomBloc, Long capaciteBloc) {
         return chambreRepository.findChambreByBlocAndCapacite(nomBloc, capaciteBloc);
     }
+    @Scheduled(cron = "*/59 * * * * * ")
+    public void listeChambresParBloc(){
+        List<Bloc> blocs = blocRepository.findAll();
+        for (Bloc bloc : blocs) {
+            log.info("bloc : " + bloc.getNomBloc() + " ayant une capacité de : " + bloc.getCapaciteBloc());
+            log.info("Liste des chambres du bloc " + bloc.getNomBloc());
+            List<Chamber> chambers = retrieveChambreByBloc(bloc.getNomBloc());
+            for (Chamber chamber : chambers) {
+                log.info("chambre numéro "+chamber.getNumeroChambre()+" de type "+chamber.getTypeC());
+            }
 
-    @Scheduled(fixedRate = 60000)
+        }
+    }
+
+/*    @Scheduled(fixedRate = 60000)
     public void listeChambresParBloc(){
 
         List<Bloc> listB = blocRepository.findAll();
@@ -71,7 +84,7 @@ public class ChamberServiceImpl implements IChambreService{
             for (Chamber ch : bloc.getChamber()){
                 log.info("Chambre numéro " + ch.getNumeroChambre() + " de type " + ch.getTypeC());
             }
-        }}
+        }}*/
     /*@Scheduled()
     public void pourcentageChambreParTypeChambre(){
         Integer listC = chambreRepository.findAll().size();

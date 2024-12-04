@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
+
 @Service
 @AllArgsConstructor
 public class ReservationServiceImpl implements IResrvationService{
@@ -39,10 +41,9 @@ public class ReservationServiceImpl implements IResrvationService{
     @Override
     public void removeResevarsion(Long idResevarsion) {
     }
-    @Override
+    /*@Override
     public Etudiant affecterEtudiantAReservation(String nomEt, String prenomEt, String idResevarsion) {
-        Etudiant etudiant = etudiantRepository.findByNomEtAndPrenomEt(nomEt, prenomEt)
-                .orElseThrow(() -> new EntityNotFoundException("Étudiant non trouvé"));
+        Etudiant etudiant = etudiantRepository.findByNomEtAndPrenomEt(nomEt, prenomEt);
 
 
         Resevarsion resevarsion = reservationRepository.findById(Long.valueOf(idResevarsion))
@@ -57,6 +58,17 @@ public class ReservationServiceImpl implements IResrvationService{
         reservationRepository.save(resevarsion);
         etudiantRepository.save(etudiant);
 
+        return etudiant;
+    }*/
+    @Override
+    public Etudiant affecterEtudiantAReservation(String nomEt, String prenomEt, String idResevarsion){
+        Etudiant etudiant = etudiantRepository.findByNomEtAndPrenomEt(nomEt, prenomEt);
+        Resevarsion resevarsion = reservationRepository.findById(Long.valueOf(idResevarsion))
+                .orElseThrow(() -> new EntityNotFoundException("Réservation non trouvée"));
+        resevarsion.getEtudiant().add(etudiant);
+        etudiant.getResevarsion().add(resevarsion);
+        etudiantRepository.save(etudiant);
+        reservationRepository.save(resevarsion);
         return etudiant;
     }
     @Override
